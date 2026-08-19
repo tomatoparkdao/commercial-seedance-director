@@ -1,0 +1,9 @@
+{
+  "name":"commercial_seedance_director",
+  "version":"1.0.0",
+  "description":"将商业简报编译为 Seedance 四段式提示词并返回异步任务状态。",
+  "endpoints":[
+    {"name":"parse_commercial_brief","parameters":{"type":"object","required":["user_input"],"properties":{"user_input":{"type":"string"}}}},
+    {"name":"compile_and_render_video","parameters":{"type":"object","required":["raw_shot","style_key","aspect_ratio"],"properties":{"raw_shot":{"type":"object"},"style_key":{"type":"string"},"aspect_ratio":{"type":"string"}}}}
+  ]
+}

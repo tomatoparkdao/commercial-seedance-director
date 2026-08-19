@@ -1,0 +1,8 @@
+{
+  "name": "commercial-seedance-director",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Commercial brief to Seedance 2.0 prompt compiler",
+  "scripts": {"build":"tsc", "test":"npm run build && node tests/run-tests.js"},
+  "devDependencies": {"@types/node":"^22.0.0", "typescript":"^5.4.5"}
+}
