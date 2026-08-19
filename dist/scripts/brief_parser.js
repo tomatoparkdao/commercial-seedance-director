@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseCommercialBrief = parseCommercialBrief;
+function parseCommercialBrief(input) { const text = input || ''; let category = 'enterprise'; if (/文旅|景区|旅游|风景|度假|雪山|海岛/.test(text))
+    category = 'tourism';
+else if (/产品|手机|数码|汽车|手表|眼镜|美妆|极简/.test(text))
+    category = 'product'; const style = { tourism: 'epic_natgeo', product: 'apple_minimalist', enterprise: 'cinematic_film' }; const ar = { tourism: '2.39:1', product: '16:9', enterprise: '16:9' }; const keywords = Array.from(new Set(text.match(/长白山|冰雪|高端|度假|科技|质感|极简|奢华|自然|汽车|数码/g) || [])); return { category, cinematic_style: style[category], aspect_ratio: ar[category], keywords }; }
