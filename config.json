@@ -1,0 +1,9 @@
+{
+  "project":"commercial-seedance-director",
+  "entry":"mcp_server.ts",
+  "rules":[
+    "Compile one observable commercial shot at a time.",
+    "Keep the four Seedance sections in every generated prompt.",
+    "Return a task id without claiming a render completed when no endpoint is configured."
+  ]
+}
