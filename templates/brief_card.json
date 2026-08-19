@@ -1,0 +1,12 @@
+{
+  "type": "card",
+  "id": "commercial-brief-card",
+  "title": "Card 1 · 商业视频方向确认",
+  "components": [
+    {"type": "text", "content": "已解析简报。请确认拍摄风格和画幅后再生成分镜。"},
+    {"type": "summary", "field": "brief"},
+    {"type": "select", "id": "style_key", "label": "拍摄风格", "options": [{"label":"史诗自然地理","value":"epic_natgeo"},{"label":"极简产品科技","value":"apple_minimalist"},{"label":"电影胶片人文","value":"cinematic_film"},{"label":"赛博高科技","value":"cyber_tech"}]},
+    {"type": "select", "id": "aspect_ratio", "label": "画幅比例", "options": [{"label":"2.39:1","value":"2.39:1"},{"label":"16:9","value":"16:9"},{"label":"9:16","value":"9:16"}]},
+    {"type": "button", "label": "确认并生成分镜", "action": "confirm_direction", "payload": {"confirmed": true}}
+  ]
+}

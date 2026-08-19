@@ -1,0 +1,10 @@
+{
+  "type": "card",
+  "id": "commercial-render-progress-card",
+  "title": "Card 3 · Seedance 渲染进度",
+  "components": [
+    {"type": "task_list", "field": "tasks", "columns": ["task_id", "status", "estimated_wait_s", "video_url"]},
+    {"type": "text", "content": "仅在真实渲染服务返回 COMPLETED 和 video_url 后显示播放器。"},
+    {"type": "button", "label": "刷新进度", "action": "poll_render_progress"}
+  ]
+}

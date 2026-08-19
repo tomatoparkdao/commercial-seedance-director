@@ -1,0 +1,9 @@
+{
+  "type":"card",
+  "title":"Seedance 提示词与渲染任务",
+  "components":[
+    {"type":"text","content":"提示词已按四段式编译；渲染仅在配置供应商 endpoint 时提交。"},
+    {"type":"code_block","language":"text","content":"【镜头运镜】...\n【动态主体】...\n【光影材质】...\n【风格规范】..."},
+    {"type":"task_status","field":"task_id"}
+  ]
+}

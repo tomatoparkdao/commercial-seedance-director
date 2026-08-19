@@ -1,0 +1,15 @@
+const assert = require('node:assert/strict');
+const { parseCommercialBrief } = require('../dist/scripts/brief_parser');
+const { validateAndSelfCorrect } = require('../dist/scripts/validators');
+const { compileSeedancePrompt } = require('../dist/scripts/prompt_compiler');
+const { createBriefCard, confirmDirection } = require('../dist/scripts/workflow');
+const product = {shot_number:1,shot_type:'macro',camera_movement:'locked macro shot',subject_action:'condensation beads merge and slide down the bottle',lighting_material:'narrow warm strip light on brushed metal',duration_s:5,motion_intensity:9};
+assert.equal(parseCommercialBrief('长白山文旅宣传片').category,'tourism');
+const checked=validateAndSelfCorrect(product); assert.equal(checked.valid,true); assert.equal(checked.sanitized_shot.motion_intensity,4); 
+const compiled=compileSeedancePrompt(product,'apple_minimalist','16:9');
+for(const section of ['【镜头运镜】','【动态主体】','【光影材质】','【风格规范】']) assert.ok(compiled.seedance_prompt.includes(section));
+assert.equal(compiled.parameters.motion,4); assert.throws(()=>compileSeedancePrompt({...product,shot_number:0},'apple_minimalist','16:9'),/CP1_SCHEMA_INVALID/);
+assert.equal(createBriefCard('长白山文旅宣传片').stage,'BRIEF_CONFIRMATION');
+assert.throws(()=>confirmDirection({confirmed:false,style_key:'epic_natgeo',aspect_ratio:'2.39:1',shots:[product]}),/CP1_BRIEF_CONFIRMATION_REQUIRED/);
+assert.equal(confirmDirection({confirmed:true,style_key:'epic_natgeo',aspect_ratio:'2.39:1',shots:[product]}).stage,'DIRECTION_CONFIRMATION');
+console.log('commercial-seedance-director tests: PASS');

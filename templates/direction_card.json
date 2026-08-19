@@ -1,0 +1,11 @@
+{
+  "type": "card",
+  "id": "commercial-direction-card",
+  "title": "Card 2 · 分镜与 Seedance 提示词确认",
+  "components": [
+    {"type": "text", "content": "请审核以下 Shot-by-Shot 分镜和四段式提示词。确认后才会提交渲染。"},
+    {"type": "storyboard", "field": "direction.shots"},
+    {"type": "prompt_list", "field": "direction.prompts"},
+    {"type": "button", "label": "确认并生成视频", "action": "submit_render", "payload": {"confirmed": true}}
+  ]
+}
